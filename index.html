@@ -10,6 +10,40 @@
   <title>Weather Outlook</title>
 </head>
 <body class="flex-column min-100-vh">
+    <header class="hero">
+        <h1 class="app-title">Weather Dashboard</h1>
+        
+      </header>
     
+    
+      <main class="flex-row justify-space-between">
+        <div class="col-12 col-md-4">
+          <div class="card">
+            <h3 class="card-header">Search for a city:</h3>
+            <form id="search-form" class="card-body">
+              <label class="form-label" for="city">City</label>
+              <input name="citySearch" id="citySearch" type="text" autofocus="true" class="form-input" />
+              <button type="submit" class="btn">Search</button>
+              <br>
+              <button type="submit" class="btn">Austin</button>
+              <button type="submit" class="btn">Chicago</button>
+              <button type="submit" class="btn">New York</button>
+              <button type="submit" class="btn">Orlando</button>
+              <button type="submit" class="btn">San Francisco</button>
+              <button type="submit" class="btn">Seattle</button>
+              <button type="submit" class="btn">Denver</button>
+              <button type="submit" class="btn">Atlanta</button>
+            </form>
+          </div>
+        </div>
+        
+      
+        <div class="col-12 col-md-8">
+          <h2 class="subtitle">Current city and date with current weather goes here<span id="repo-search-term"></span></h2>
+          <div id="repos-container" class="list-group"></div>
+        </div>
+        
+      </main>
+      <script src="./assets/js/homepage.js"></script>
 </body>
 </html>
