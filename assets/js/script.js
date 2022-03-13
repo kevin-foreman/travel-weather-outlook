@@ -1,10 +1,32 @@
-weatherContainerEl = document.querySelector("#current-weather")
+var weatherContainerEl = document.querySelector("#current-weather");
+var citySearchEl = document.querySelector("#city-search");
+var cityInputEl = document.querySelector("#city-search");
+var cityButtonsEl = document.querySelector("#city-buttons")
+
 
 var cityButtonsEl = document.querySelector("#city-buttons");
 
-function getCityWeather() {
+var formSubmitHandler = function(event) {
+  // prevent page from refreshing
+  event.preventDefault();
+
+  // get value from input element
+  var citysearch = cityInputEl.value.trim();
+
+  if (citysearch) {
+    getCityWeather(citysearch);
+
+    // clear old content
+    weatherContainerEl.textContent = "";
+    cityInputEl.value = "";
+  } else {
+    alert("Please enter a city");
+  }
+};
+
+function getCityWeather(city) {
     // format the OPEN WEATHER api url
-    var apiUrl = "OPEN WEATHER API";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";;
   
     // make a request to the url
     fetch(apiUrl)
@@ -24,8 +46,25 @@ function getCityWeather() {
     });
   };
 
-  function getCurrentWeather() {
-    var apiUrl = "http://api.openweathermap.org/data/2.5/onecall/timemachine?lat=60.99&lon=30.9&dt=1586468027&appid={8a6335987062d51ad7d8c2a8d96bc7cc}";
+  function getCurrentWeather(city) {
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";
   
     fetch(apiUrl);
   };
+
+  
+
+  // button click handler
+function buttonClickHandler() {
+  let language = event.target.getAttribute("data-city");
+  console.log(city);
+  if (city) {
+    getCurrentWeather(city);
+
+    weatherContainerEl.textContent = "";
+  }
+};
+
+
+cityButtonsEl.addEventListener("submit", formSubmitHandler);
+cityButtonsEl.addEventListener("click", buttonClickHandler);

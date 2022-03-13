@@ -21,15 +21,15 @@
             <h3 class="card-header">Search for a city:</h3>
             <form id="search-form" class="card-body">
               <label class="form-label" for="city">City</label>
-              <input name="citySearch" id="citySearch" type="text" autofocus="true" class="form-input" />
+              <input name="city" id="city" type="text" autofocus="true" class="form-input" />
               <button type="submit" class="btn">Search</button>
-              <br>
+              
             </form>    
-            </div>
+          </div>
 
-          <div class="card">
+        <div class="card">
               <h3 class="card-header">Search By City</h3>
-              <div id="city-buttons" class="card-body">
+            <div id="city-buttons" class="card-body">
               <button class="btn" data-city="austin">Austin</button>
               <button class="btn" data-city="chicago">Chicago</button>
               <button class="btn" data-city="new-york">New York</button>
@@ -41,12 +41,12 @@
           </div>
 
         </div>
-      </div>
+        </div>
         
       
         <div class="col-12 col-md-8">
-          <h2 class="subtitle">Current city and date with current weather goes here<span id="repo-search-term"></span></h2>
-          <div id="repos-container" class="list-group"></div>
+          <h2 class="subtitle">Showing Weather for: <span id="city-search"></span></h2>
+          <div id="current-weather" class="list-group"></div>
         </div>
         
       </main>
