@@ -3,7 +3,7 @@
     --secondary: #9caea9;
     --tertiary: #788585;
     --light-dark: #6f6866;
-    --dark: #38302e;
+    --dark: blue;
     --border-radius: .3rem;
   }
   
@@ -107,9 +107,10 @@
     background-color: var(--primary);
     color: var(--dark);
     padding: 0 10px;
-    display: inline-block;
+    display: flex;
     border-radius: var(--border-radius);
     box-shadow: 6px 5px var(--light-dark);
+    justify-content: center;
   }
   
   .list-group {

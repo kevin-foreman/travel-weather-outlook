@@ -14,8 +14,7 @@
         <h1 class="app-title">Weather Dashboard</h1>
         
       </header>
-    
-    
+        
       <main class="flex-row justify-space-between">
         <div class="col-12 col-md-4">
           <div class="card">
@@ -24,18 +23,25 @@
               <label class="form-label" for="city">City</label>
               <input name="citySearch" id="citySearch" type="text" autofocus="true" class="form-input" />
               <button type="submit" class="btn">Search</button>
-              <p>_________________________________________________</p>
-              <button type="submit" class="btn">Austin</button>
-              <button type="submit" class="btn">Chicago</button>
-              <button type="submit" class="btn">New York</button>
-              <button type="submit" class="btn">Orlando</button>
-              <button type="submit" class="btn">San Francisco</button>
-              <button type="submit" class="btn">Seattle</button>
-              <button type="submit" class="btn">Denver</button>
-              <button type="submit" class="btn">Atlanta</button>
-            </form>
+              <br>
+            </form>    
+            </div>
+
+          <div class="card">
+              <h3 class="card-header">Search By City</h3>
+              <div id="city-buttons" class="card-body">
+              <button class="btn" data-city="austin">Austin</button>
+              <button class="btn" data-city="chicago">Chicago</button>
+              <button class="btn" data-city="new-york">New York</button>
+              <button class="btn" data-city="orlando">Orlando</button>
+              <button class="btn" data-city="san-francisco">San Francisco</button>
+              <button class="btn" data-city="seattle">Seattle</button>
+              <button class="btn" data-city="denver">Denver</button>
+              <button class="btn" data-city="atlanta">Atlanta</button>
           </div>
+
         </div>
+      </div>
         
       
         <div class="col-12 col-md-8">
@@ -44,6 +50,6 @@
         </div>
         
       </main>
-      <script src="./assets/js/homepage.js"></script>
+      <script src="./assets/js/script.js"></script>
 </body>
 </html>
