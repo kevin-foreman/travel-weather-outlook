@@ -5,6 +5,8 @@ var cityButtonsEl = document.querySelector("#city-buttons");
 var citySearchTerm = document.querySelector("#city-search-term");
 var citySearchTermEl = document.querySelector("#city-search-term");
 
+
+// take input from a user to search for a city inside the form
 var formSubmitHandler = function(event) {
   // prevent page from refreshing
   event.preventDefault();
@@ -25,7 +27,7 @@ var formSubmitHandler = function(event) {
 
 function getCurrentWeather(city) {
     // format the OPEN WEATHER api url
-       var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q" + city + ",us&appid=8a6335987062d51ad7d8c2a8d96bc7cc";;
+       var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";;
     // var apiUrl = "https://api.openweathermap.org/data/2.5/weather?qlondon&appid=8a6335987062d51ad7d8c2a8d96bc7cc"
     // make a request to the api's URL
     fetch(apiUrl).then(function(response) {
@@ -33,11 +35,13 @@ function getCurrentWeather(city) {
       if (response.ok) {
         response.json().then(function(data) {
           displayWeather(data, city);
+          console.log(data);
+          displayWeather(data, city);
         });
       } else {
-        alert('Error: City not found');
+        alert("Error: " + response.statusText);
       };
-    });
+    })
     .catch(function(error) {
      
       alert("Unable to connect to Open Weather");
@@ -59,21 +63,38 @@ function getCurrentWeather(city) {
     return;
     };
     
-    weatherSearchTerm.textContent = searchTerm;
+    // weatherSearchTerm.textContent = searchTerm;
 
-    var tempEl = document.createElement("a");
-    tempEl.classList = "list-item flex-row";
+    // loop over weather data
+    for (var i = 0; i <weather.length; i++) {
+
+
+    // create a container for each weather element
+    var weatherEl = document.createElement("div");
+    weatherEl.classlist = "list-item flex-row justify-space-between align-center";
+
+    var tempEl = document.createElement("p");
+    tempEl.classList = "list-item flex-row justify-space-between align-center";
+
+    var windEl = document.createElement("p");
+    windEl.classlist = "list-item flex-row justify-space-between align-center";
+
+    var humidityEl = document.createElement("p");
+    humidityEl.classlist = "list-item flex-row justify-space-between align-center";
+
+    var uvIndexEl = document.createElement("p");
+    uvIndexEl.classlist = "list-item flex-row justify-space-between align-center";
     
-    var windEl = document.createElement("a");
-    windEl.classlist = "list-item flex-row";
+    // create a span element to hold the name of the city
+    var titleEl = document.createElement("span");
+    titleEl.textContent = cityName;
 
-    var humidityEl = document.createElement("a");
-    humidityEl.classlist = "list-item flex-row";
+    // Append items to the container
+    weatherEl.appendChild(titleEl);
 
-    var uvIndexEl = document.createElement("a");
-    uvIndexEl.classlist = "list-item flex-row";
-
-
+    // Append container to the DOM
+    weatherContainerEl.appendChild(weatherEl);
+    };
   };
 
   function getSearchedWeather(city) {
@@ -100,6 +121,9 @@ function buttonClickHandler() {
   };
 };
 
+// Add a listener to the city search button
+cityFormEl.addEventListener("submit", formSubmitHandler);
+
 
 cityButtonsEl.addEventListener("submit", formSubmitHandler);
-cityButtonsEl.addEventListener("click", buttonClickHandler);
+// cityButtonsEl.addEventListener("click", buttonClickHandler);
