@@ -1,10 +1,9 @@
-var weatherContainerEl = document.querySelector("#current-weather");
-var cityFormEl = document.querySelector("#city-form")
-var citySearchEl = document.querySelector("#city-search");
-var cityInputEl = document.querySelector("#city-search");
+var weatherContainerEl = document.querySelector("#weather-container");
+var cityFormEl = document.querySelector("#city-form");
+var cityInputEl = document.querySelector("#city-search-term");
 var cityButtonsEl = document.querySelector("#city-buttons");
 var citySearchTerm = document.querySelector("#city-search-term");
-var citySearchTermEl = document.querySelector("#city-search-term")
+var citySearchTermEl = document.querySelector("#city-search-term");
 
 var formSubmitHandler = function(event) {
   // prevent page from refreshing
@@ -14,21 +13,21 @@ var formSubmitHandler = function(event) {
   var city = cityInputEl.value.trim();
 
   if (city) {
-    getCityWeather(city);
+    getCurrentWeather(city);
 
     // clear old content
     weatherContainerEl.textContent = "";
     cityInputEl.value = "";
   } else {
     alert("Please enter a city");
-  }
+  };
 };
 
 function getCurrentWeather(city) {
     // format the OPEN WEATHER api url
-       var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";;
+       var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q" + city + ",us&appid=8a6335987062d51ad7d8c2a8d96bc7cc";;
     // var apiUrl = "https://api.openweathermap.org/data/2.5/weather?qlondon&appid=8a6335987062d51ad7d8c2a8d96bc7cc"
-    // make a request to the url
+    // make a request to the api's URL
     fetch(apiUrl).then(function(response) {
       
       if (response.ok) {
@@ -37,19 +36,23 @@ function getCurrentWeather(city) {
         });
       } else {
         alert('Error: City not found');
-      }
-    })
+      };
+    });
     .catch(function(error) {
      
       alert("Unable to connect to Open Weather");
     });
   };
 
-  getCurrentWeather();
+  // getCurrentWeather();
 
 
 
   function displayWeather(weather, searchTerm) {
+
+    // Clear old content
+    weatherContainerEl.textContent = "";
+    citySearchTerm.textContent = searchTerm;
 
     if (weather.length === 0) {
     weatherContainerEl.textContent = "No weather found.";
@@ -94,7 +97,7 @@ function buttonClickHandler() {
     getSearchedWeather(city);
 
     weatherContainerEl.textContent = "";
-  }
+  };
 };
 
 
