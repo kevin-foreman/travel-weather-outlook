@@ -2,8 +2,7 @@ var weatherContainerEl = document.querySelector("#weather-container");
 var cityFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#city-search-term");
 var cityButtonsEl = document.querySelector("#city-buttons");
-var citySearchTerm = document.querySelector("#city-search-term");
-var citySearchTermEl = document.querySelector("#city-search-term");
+var citySearchTermEl = document.querySelector("#city-term");
 
 
 // take input from a user to search for a city inside the form
@@ -55,20 +54,17 @@ function getCurrentWeather(city) {
   // Display the information returned by the API
   function displayWeather(main, searchTerm) {
 
-    // Clear old content
-    weatherContainerEl.textContent = "";
-    citySearchTerm.textContent = searchTerm;
-
     if (main.length === 0) {
     weatherContainerEl.textContent = "No weather found.";
     return;
     };
+
+    citySearchTermEl.textContent = searchTerm;
     
-    // weatherSearchTerm.textContent = searchTerm;
 
     // loop over weather data
     for (var i = 0; i <main.length; i++) {
-    var cityName = main[i].name;
+    var cityName = main.name;
 
 
     // create a container for each weather element
