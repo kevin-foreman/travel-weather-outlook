@@ -98,7 +98,7 @@ function getCurrentWeather(city) {
   };
 
   function getSearchedWeather(city) {
-    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";
     fetch(apiUrl).then(function() {
     if (response.ok) {
       response.json().then(function(data) {
@@ -126,4 +126,4 @@ cityFormEl.addEventListener("submit", formSubmitHandler);
 
 
 cityButtonsEl.addEventListener("submit", formSubmitHandler);
-// cityButtonsEl.addEventListener("click", buttonClickHandler);
+cityButtonsEl.addEventListener("click", buttonClickHandler);
