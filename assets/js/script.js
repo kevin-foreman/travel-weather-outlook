@@ -1,4 +1,5 @@
 var weatherContainerEl = document.querySelector("#current-weather");
+var cityFormEl = document.querySelector("#city-form")
 var citySearchEl = document.querySelector("#city-search");
 var cityInputEl = document.querySelector("#city-search");
 var cityButtonsEl = document.querySelector("#city-buttons");
@@ -23,11 +24,10 @@ var formSubmitHandler = function(event) {
   }
 };
 
-
-function getCityWeather(city) {
+function getCurrentWeather(city) {
     // format the OPEN WEATHER api url
-    // var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";;
-       var apiUrl = "https://api.openweathermap.org/data/2.5/weather?qlondon&appid=8a6335987062d51ad7d8c2a8d96bc7cc"
+       var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";;
+    // var apiUrl = "https://api.openweathermap.org/data/2.5/weather?qlondon&appid=8a6335987062d51ad7d8c2a8d96bc7cc"
     // make a request to the url
     fetch(apiUrl).then(function(response) {
       
@@ -40,10 +40,12 @@ function getCityWeather(city) {
       }
     })
     .catch(function(error) {
-      // `.catch()` getting chained onto the end of the `.then()` method
+     
       alert("Unable to connect to Open Weather");
     });
   };
+
+  getCurrentWeather();
 
 
 
@@ -71,18 +73,25 @@ function getCityWeather(city) {
 
   };
 
-    // function getCurrentWeather(city) {
-  //   var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";
-  
-  //   fetch(apiUrl);
-  // };
+  function getSearchedWeather(city) {
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";
+    fetch(apiUrl).then(function() {
+    if (response.ok) {
+      response.json().then(function(data) {
+        displayWeather(data.items, city)
+      });
+    } else {
+      alert("error: Weather not found");
+    };
+  });
+  };
 
   // button click handler
 function buttonClickHandler() {
-  let language = event.target.getAttribute("data-city");
+  let city = event.target.getAttribute("data-city");
   console.log(city);
   if (city) {
-    getCurrentWeather(city);
+    getSearchedWeather(city);
 
     weatherContainerEl.textContent = "";
   }
