@@ -35,7 +35,8 @@ function getCurrentWeather(city) {
         response.json().then(function(data) {
           // console.log(data.name);
           displayWeather(data.name, city);
-          console.log(data);
+          // console.log(data);
+          // console.log(data.name);
           displayWeather(data, city);
         });
       } else {
@@ -46,14 +47,15 @@ function getCurrentWeather(city) {
     
       alert("Unable to connect to Open Weather");
     });
+    
   };
 
-  // getCurrentWeather();
+ // getCurrentWeather();
 
 
   // Display the information returned by the API
   function displayWeather(main, searchTerm) {
-
+    
     if (main.length === 0) {
     weatherContainerEl.textContent = "No weather found.";
     return;
@@ -65,12 +67,13 @@ function getCurrentWeather(city) {
     // loop over weather data
     for (var i = 0; i <main.length; i++) {
     var cityName = main.name;
-
+    console.log(cityName);
 
     // create a container for each weather element
     var weatherEl = document.createElement("div");
     weatherEl.classlist = "list-item flex-row justify-space-between align-center";
     weatherEl.setAttribute("textContent", cityName);
+    
 
     var tempEl = document.createElement("p");
     tempEl.classList = "list-item flex-row justify-space-between align-center";
@@ -98,6 +101,7 @@ function getCurrentWeather(city) {
 
   function getSearchedWeather(city) {
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";
+    
     fetch(apiUrl).then(function(response) {
     if (response.ok) {
       response.json().then(function(data) {
@@ -112,7 +116,7 @@ function getCurrentWeather(city) {
   // button click handler
 function buttonClickHandler() {
   let city = event.target.getAttribute("data-city");
-  console.log(city);
+  // console.log(city);
   if (city) {
     getSearchedWeather(city);
 
