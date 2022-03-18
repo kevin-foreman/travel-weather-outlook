@@ -32,7 +32,7 @@ function getCurrentWeather(city) {
       // console.log(response);
       if (response.ok) {
         response.json().then(function(data) {
-          // console.log(data.name);
+          console.log(data.name);
           displayWeather(data.name, city);
           // console.log(data);
           // console.log(data.name);
@@ -68,7 +68,7 @@ function getCurrentWeather(city) {
     weatherEl.classlist = "list-item flex-row justify-space-between align-center";
     // console.log(weatherEl.classList);
     var cityName = main.name;
-    console.log(cityName);
+    // console.log(main.name);
     
     var tempEl = document.createElement("p");
     tempEl.classList = "list-item flex-row justify-space-between align-center";
@@ -112,8 +112,8 @@ function buttonClickHandler() {
   let city = event.target.getAttribute("data-city");
   console.log(city);
   if (city) {
-    getSearchedCity(city);
-
+    // console.log(city);
+    getCurrentWeather(city);
     weatherContainerEl.textContent = "";
   };
 };
@@ -122,5 +122,5 @@ function buttonClickHandler() {
 cityFormEl.addEventListener("submit", formSubmitHandler);
 
 // add event listener to the pre-defined city buttons
-cityButtonsEl.addEventListener("submit", formSubmitHandler);
+// cityButtonsEl.addEventListener("submit", formSubmitHandler);
 cityButtonsEl.addEventListener("click", buttonClickHandler);
