@@ -110,7 +110,7 @@ function getCurrentWeather(city) {
   // button click handler
 function buttonClickHandler() {
   let city = event.target.getAttribute("data-city");
-  // console.log(city);
+  console.log(city);
   if (city) {
     getSearchedCity(city);
 
