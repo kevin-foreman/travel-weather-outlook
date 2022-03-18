@@ -24,6 +24,8 @@ var formSubmitHandler = function(event) {
   };
 };
 
+// feen the API into a variable we can pull later
+// API data needs to be parsed with json to be read by the browser
 function getCurrentWeather(city) {
     // format the OPEN WEATHER api url
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=8a6335987062d51ad7d8c2a8d96bc7cc";;
@@ -51,9 +53,13 @@ function getCurrentWeather(city) {
 
  // getCurrentWeather();
 
+  // Display based on what the API returns
 
+  // Add the response given by the API into a display type function
   // Display the information returned by the API
   function displayWeather(main, searchTerm) {
+
+    console.log(main);
     
     if (main.length === 0) {
     weatherContainerEl.textContent = "No weather found.";
@@ -68,7 +74,7 @@ function getCurrentWeather(city) {
     weatherEl.classlist = "list-item flex-row justify-space-between align-center";
     // console.log(weatherEl.classList);
     var cityName = main.name;
-    // console.log(main.name);
+    console.log(searchTerm.name);
     
     var tempEl = document.createElement("p");
     tempEl.classList = "list-item flex-row justify-space-between align-center";
