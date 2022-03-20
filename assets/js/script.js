@@ -39,7 +39,7 @@ function getCurrentWeather(city) {
           // console.log(data);
           // console.log(data.name);
           getOneCall(data.coord);
-          displayWeather(data.name);
+          // displayWeather(data.name);
         });
       } else {
         alert("Error: " + response.statusText);
@@ -53,14 +53,14 @@ function getCurrentWeather(city) {
   };
 
   // Add One Call API function and pipe in the lat lon results from initial API fetch
-  function getOneCall(coord) {
+  function getOneCall(coord, city) {
     var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" +coord.lat + "&lon=" +coord.lon + "&units=imperial&appid=8a6335987062d51ad7d8c2a8d96bc7cc"
     fetch(apiUrl).then(function(response) {
       // console.log(response);
       if (response.ok) {
         response.json().then(function(data) {
           console.log(data);
-        displayWeather(data.current);
+        displayWeather(data.current, city);
         // displayForecast(data.daily)
         });
       } else {
@@ -115,7 +115,7 @@ function getCurrentWeather(city) {
     var tempEl = document.createElement("p");
     tempEl.classList = "list-item flex-row justify-space-between align-center";
     // display the temperature and convert from kelvin to farenheit
-    tempEl.textContent = "Temp: " + Math.round((temp - 273.15) * 1.8 + 32) + " F";
+    tempEl.textContent = "Temp: " + Math.round(temp) + " F";
   
 
     // console.log(tempEl);
