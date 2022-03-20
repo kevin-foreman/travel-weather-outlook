@@ -74,26 +74,26 @@ function getCurrentWeather(city) {
     weatherEl.classlist = "list-item flex-row justify-space-between align-center";
     // console.log(weatherEl.classList);
     var cityName = main.name;
-    console.log("line 77 console: " + main.name);
-    
+    console.log(main.main.temp);
+    // try creating a variable to contain the specific data point from the API response
+    var temp = main.main.temp;
     var tempEl = document.createElement("p");
     tempEl.classList = "list-item flex-row justify-space-between align-center";
-    tempEl.textContent = "Temp: ";
-    
-
-
-    // try creating a variable to contain the specific data point from the API response
-    var temp = main.temp;
-
+    // display the temperature and convert from kelvin to farenheit
+    tempEl.textContent = "Temp: " + Math.round((temp - 273.15) * 1.8 + 32) + " F";
+  
 
     // console.log(tempEl);
 
     var windEl = document.createElement("p");
     windEl.classList = "list-item flex-row justify-space-between align-center";
-    windEl.textContent = "Wind: ";
+    windEl.textContent = "Wind: " + main.wind.speed + " mph";
+    var wind = main.wind.speed;
 
     var humidityEl = document.createElement("p");
-    humidityEl.classlist = "list-item flex-row justify-space-between align-center";
+    humidityEl.classList = "list-item flex-row justify-space-between align-center";
+    humidityEl.textContent = "Humidity: " + main.main.humidity + " %";
+    var humididty = main.main.humidity;
 
     var uvIndexEl = document.createElement("p");
     uvIndexEl.classlist = "list-item flex-row justify-space-between align-center";
@@ -106,6 +106,7 @@ function getCurrentWeather(city) {
     weatherEl.appendChild(titleEl);
     weatherEl.appendChild(tempEl);
     weatherEl.appendChild(windEl);
+    weatherEl.appendChild(humidityEl);
 
     // Append container to the DOM
     weatherContainerEl.appendChild(weatherEl);
