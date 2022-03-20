@@ -35,7 +35,7 @@ function getCurrentWeather(city) {
       if (response.ok) {
         response.json().then(function(data) {
           console.log(data.name);
-          displayWeather(data.name, city);
+          // displayWeather(data.name, city);
           // console.log(data);
           // console.log(data.name);
           displayWeather(data, city);
@@ -59,7 +59,7 @@ function getCurrentWeather(city) {
   // Display the information returned by the API
   function displayWeather(main, searchTerm) {
 
-    console.log(main);
+    // console.log(main);
     
     if (main.length === 0) {
     weatherContainerEl.textContent = "No weather found.";
@@ -74,13 +74,23 @@ function getCurrentWeather(city) {
     weatherEl.classlist = "list-item flex-row justify-space-between align-center";
     // console.log(weatherEl.classList);
     var cityName = main.name;
-    console.log(searchTerm.name);
+    console.log("line 77 console: " + main.name);
     
     var tempEl = document.createElement("p");
     tempEl.classList = "list-item flex-row justify-space-between align-center";
+    tempEl.textContent = "Temp: ";
+    
+
+
+    // try creating a variable to contain the specific data point from the API response
+    var temp = main.temp;
+
+
+    // console.log(tempEl);
 
     var windEl = document.createElement("p");
-    windEl.classlist = "list-item flex-row justify-space-between align-center";
+    windEl.classList = "list-item flex-row justify-space-between align-center";
+    windEl.textContent = "Wind: ";
 
     var humidityEl = document.createElement("p");
     humidityEl.classlist = "list-item flex-row justify-space-between align-center";
@@ -94,6 +104,8 @@ function getCurrentWeather(city) {
 
     // Append items to the container
     weatherEl.appendChild(titleEl);
+    weatherEl.appendChild(tempEl);
+    weatherEl.appendChild(windEl);
 
     // Append container to the DOM
     weatherContainerEl.appendChild(weatherEl);
