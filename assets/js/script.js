@@ -145,37 +145,38 @@ function getCurrentWeather(city) {
     weatherEl.appendChild(uvIndexEl);
 
     // create an if else scenario to make the UV index change based on how high or low
-    if (current.uvi <= 2) {
-      var uvIndexEl = document.createElement("p");
-      uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
-      uvIndexEl.textContent = "UV Index: " + current.uvi + " (Favorable)";
-      console.log(uvIndexEl.textContent);
-      weatherEl.appendChild(uvIndexEl);
-    } else if (current.uvi >= 3 || current.uvi <= 5)  {
-      var uvIndexEl = document.createElement("p");
-      uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
-      uvIndexEl.textContent = "UV Index: " + current.uvi + " (Moderate)";
-      console.log(uvIndexEl.textContent);
-      weatherEl.appendChild(uvIndexEl);
-    } else if (current.uvi >= 6 || current.uvi <= 7)  {
-      var uvIndexEl = document.createElement("p");
-      uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
-      uvIndexEl.textContent = "UV Index: " + current.uvi + " (High)";
-      console.log(uvIndexEl.textContent);
-      weatherEl.appendChild(uvIndexEl);
-    } else if (current.uvi >= 8 || current.uvi <= 10)  {
-      var uvIndexEl = document.createElement("p");
-      uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
-      uvIndexEl.textContent = "UV Index: " + current.uvi + " (Very High)";
-      console.log(uvIndexEl.textContent);
-      weatherEl.appendChild(uvIndexEl);
-    } else if (current.uvi >= 11)  {
-      var uvIndexEl = document.createElement("p");
-      uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
-      uvIndexEl.textContent = "UV Index: " + current.uvi + " (Extreme)";
-      console.log(uvIndexEl.textContent);
-      weatherEl.appendChild(uvIndexEl);
-    }
+    // if (current.uvi <= 2) {
+    //   var uvIndexEl = "";
+    //   var uvIndexEl = document.createElement("p");
+    //   uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
+    //   uvIndexEl.textContent = "UV Index: " + current.uvi + " (Favorable)";
+    //   console.log(uvIndexEl.textContent);
+    //   weatherEl.appendChild(uvIndexEl);
+    // } else if (current.uvi >= 3 || current.uvi <= 5)  {
+    //   var uvIndexEl = document.createElement("p");
+    //   uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
+    //   uvIndexEl.textContent = "UV Index: " + current.uvi + " (Moderate)";
+    //   console.log(uvIndexEl.textContent);
+    //   weatherEl.appendChild(uvIndexEl);
+    // } else if (current.uvi >= 6 || current.uvi <= 7)  {
+    //   var uvIndexEl = document.createElement("p");
+    //   uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
+    //   uvIndexEl.textContent = "UV Index: " + current.uvi + " (High)";
+    //   console.log(uvIndexEl.textContent);
+    //   weatherEl.appendChild(uvIndexEl);
+    // } else if (current.uvi >= 8 || current.uvi <= 10)  {
+    //   var uvIndexEl = document.createElement("p");
+    //   uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
+    //   uvIndexEl.textContent = "UV Index: " + current.uvi + " (Very High)";
+    //   console.log(uvIndexEl.textContent);
+    //   weatherEl.appendChild(uvIndexEl);
+    // } else if (current.uvi >= 11)  {
+    //   var uvIndexEl = document.createElement("p");
+    //   uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
+    //   uvIndexEl.textContent = "UV Index: " + current.uvi + " (Extreme)";
+    //   console.log(uvIndexEl.textContent);
+    //   weatherEl.appendChild(uvIndexEl);
+    // };
 
     // Append container to the DOM
     weatherContainerEl.appendChild(weatherEl);

@@ -9,26 +9,32 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Weather Outlook</title>
 </head>
-<body class="columns is-multiline">
-    <header class="hero-body">
-        <h1 class="dashboard-title hero">Weather Dashboard</h1>
+<body>
+    <header class="container hero is-info is-small mb-4">
+      <div class="hero-body">
+        <h1 class="title dashboard-title hero-body">Weather Dashboard</h1>
+      </div>          
+    </header>
         
-      </header>
-        
-      <main class="columns is-multiline">
-        <div class="column">
-          <div class="card">
+      <main class="container">
+        <div class="columns is-multiline is-mobile">
+          <div class="box column is-one-quarter ml-4">
             <h3 class="card-header">Search for a city:</h3>
-            <form id="city-form" class="card-body">
-              <label class="form-label" for="city">City</label>
-              <input name="city-search-term" id="city-search-term" type="text" autofocus="true" class="form-input" />
-              <button type="submit" class="button is-primary">Search</button>
-              
+            <form id="city-form" class="field box">
+              <label class="label" for="city">City</label>
+              <input name="city-search-term" id="city-search-term" type="text" autofocus="true" class="input" placeholder="Place city here" />
+              <button type="submit" class="button is-primary mt-1">Search</button>
             </form>    
           </div>
+        </div>
 
-        <div class="column" >
-              <h3 class="card-header">Search By City</h3>
+        <div class="box mt-3" >
+          <label class="label">Recently searched cities</label>
+          <div id="recent-search" class="buttons">
+
+          </div>
+        </div>
+              <!-- <h3 class="card-header">Search By City</h3>
             <div id="city-buttons" class="card-body">
               <button class="button is-info" data-city="Austin">Austin</button>
               <button class="button is-info" data-city="Chicago">Chicago</button>
@@ -39,7 +45,8 @@
               <button class="button is-info" data-city="Denver">Denver</button>
               <button class="button is-info" data-city="Atlanta">Atlanta</button>
             </div>
-        </div>
+        </div> -->
+        
       
 
         <div class="column" id="weather-container">
