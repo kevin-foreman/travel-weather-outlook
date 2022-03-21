@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Weather Outlook</title>
+</head>
+<body>
+    <header class="container hero is-info is-small mb-4">
+      <div class="hero-body">
+        <h1 class="title dashboard-title hero-body">Travel Weather Dashboard</h1>
+      </div>          
+    </header>
+        
+      <main class="container">
+        <div class="columns is-multiline is-mobile">
+          <div class="box column is-one-quarter ml-4">
+
+              <form id="city-form" class="field box">
+              <label class="label" for="city">Search for a city</label>
+              <div class="control">
+                <input name="city-search-term" id="city-search-term" type="text" autofocus="true" class="input" placeholder="Type city here" />
+              </div>
+              <div class="control">
+              <button type="submit" class="button is-primary mt-1">Search</button>
+              </div>
+              </form>
+
+        <div id="recent-searches" class="box mt3">
+          <label class="label">Recent searches</label>
+          <div id="recent-search" class="buttons">
+
+          </div>
+        </div>
+      </div> 
+      
+      <div class="box column ml-2 mr-4">
+          
+        <h2 class="subtitle bd-notification is-info title is-5">Showing weather for: <span id="city-term"></span></h2>
+        <div id="weather-container"></div>  
+        <div class="columns">
+            <h3 class="column is one-fifth"></div>
+            <h3 class="column is one-fifth"></div>
+            <h3 class="column is one-fifth"></div>
+            <h3 class="column is one-fifth"></div>
+            <h3 class="column is one-fifth"></div>
+          </div>
+        </div>
+      </main>
+      
+      <script src="./assets/js/script.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</body>
+</html>
