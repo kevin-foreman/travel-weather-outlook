@@ -1,0 +1,22 @@
+/* add color change styling for the UV index */
+/* remember to remove this after committing **************************************** */
+
+.favorable {
+  color: green
+}
+
+.moderate {
+  color: yellow
+}
+
+.high {
+  color: lightcoral
+}
+
+.very-high {
+  color: red
+}
+
+.extreme {
+  color: purple
+}
