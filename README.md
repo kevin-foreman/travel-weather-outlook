@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 # Travel Weather Outlook
+
 ## Simple weather outlook app for planning travel
-=======
-# Work Day Scheduler
 
 ## Purpose
 User Story: AS A traveler I WANT to see the weather outlook for multiple cities SO THAT I can plan a trip accordingly
@@ -31,4 +29,3 @@ Link to deployed location: https://kevin-foreman.github.io/travel-weather-outloo
 
 Screenshot: 
 ![screenshot](./travel-weather-outlook-screenshot.png)
->>>>>>> develop
