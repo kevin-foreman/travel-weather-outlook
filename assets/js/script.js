@@ -1,8 +1,9 @@
 var weatherContainerEl = document.querySelector("#weather-container");
 var cityFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#city-search-term");
-var cityButtonsEl = document.querySelector("#city-buttons");
+// var cityButtonsEl = document.querySelector("#city-buttons");
 var citySearchTermEl = document.querySelector("#city-term");
+var weeklyForecastEl = document.querySelector("#week-forecast")
 
 
 // take input from a user to search for a city inside the form
@@ -46,8 +47,7 @@ function getCurrentWeather(city) {
       };
     })
     .catch(function(error) {
-    
-      alert("Unable to connect to Open Weather");
+        alert("Unable to connect to Open Weather");
     });
     
   };
@@ -145,38 +145,7 @@ function getCurrentWeather(city) {
     weatherEl.appendChild(uvIndexEl);
 
     // create an if else scenario to make the UV index change based on how high or low
-    // if (current.uvi <= 2) {
-    //   var uvIndexEl = "";
-    //   var uvIndexEl = document.createElement("p");
-    //   uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
-    //   uvIndexEl.textContent = "UV Index: " + current.uvi + " (Favorable)";
-    //   console.log(uvIndexEl.textContent);
-    //   weatherEl.appendChild(uvIndexEl);
-    // } else if (current.uvi >= 3 || current.uvi <= 5)  {
-    //   var uvIndexEl = document.createElement("p");
-    //   uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
-    //   uvIndexEl.textContent = "UV Index: " + current.uvi + " (Moderate)";
-    //   console.log(uvIndexEl.textContent);
-    //   weatherEl.appendChild(uvIndexEl);
-    // } else if (current.uvi >= 6 || current.uvi <= 7)  {
-    //   var uvIndexEl = document.createElement("p");
-    //   uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
-    //   uvIndexEl.textContent = "UV Index: " + current.uvi + " (High)";
-    //   console.log(uvIndexEl.textContent);
-    //   weatherEl.appendChild(uvIndexEl);
-    // } else if (current.uvi >= 8 || current.uvi <= 10)  {
-    //   var uvIndexEl = document.createElement("p");
-    //   uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
-    //   uvIndexEl.textContent = "UV Index: " + current.uvi + " (Very High)";
-    //   console.log(uvIndexEl.textContent);
-    //   weatherEl.appendChild(uvIndexEl);
-    // } else if (current.uvi >= 11)  {
-    //   var uvIndexEl = document.createElement("p");
-    //   uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
-    //   uvIndexEl.textContent = "UV Index: " + current.uvi + " (Extreme)";
-    //   console.log(uvIndexEl.textContent);
-    //   weatherEl.appendChild(uvIndexEl);
-    // };
+   
 
     // Append container to the DOM
     weatherContainerEl.appendChild(weatherEl);
@@ -212,4 +181,4 @@ cityFormEl.addEventListener("submit", formSubmitHandler);
 
 // add event listener to the pre-defined city buttons
 // cityButtonsEl.addEventListener("submit", formSubmitHandler);
-cityButtonsEl.addEventListener("click", buttonClickHandler);
+// cityButtonsEl.addEventListener("click", buttonClickHandler);

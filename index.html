@@ -12,45 +12,35 @@
 <body>
     <header class="container hero is-info is-small mb-4">
       <div class="hero-body">
-        <h1 class="title dashboard-title hero-body">Weather Dashboard</h1>
+        <h1 class="title dashboard-title hero-body">Travel Weather Dashboard</h1>
       </div>          
     </header>
         
       <main class="container">
         <div class="columns is-multiline is-mobile">
           <div class="box column is-one-quarter ml-4">
-            <h3 class="card-header">Search for a city:</h3>
-            <form id="city-form" class="field box">
-              <label class="label" for="city">City</label>
-              <input name="city-search-term" id="city-search-term" type="text" autofocus="true" class="input" placeholder="Place city here" />
-              <button type="submit" class="button is-primary mt-1">Search</button>
-            </form>    
-          </div>
-        </div>
 
-        <div class="box mt-3" >
-          <label class="label">Recently searched cities</label>
+              <form id="city-form" class="field box">
+              <label class="label" for="city">Search for a city</label>
+              <div class="control">
+                <input name="city-search-term" id="city-search-term" type="text" autofocus="true" class="input" placeholder="Type city here" />
+              </div>
+              <div class="control">
+              <button type="submit" class="button is-primary mt-1">Search</button>
+              </div>
+              </form>
+
+        <div id="recent-searches" class="box mt3">
+          <label class="label">Recent searches</label>
           <div id="recent-search" class="buttons">
 
           </div>
         </div>
-              <!-- <h3 class="card-header">Search By City</h3>
-            <div id="city-buttons" class="card-body">
-              <button class="button is-info" data-city="Austin">Austin</button>
-              <button class="button is-info" data-city="Chicago">Chicago</button>
-              <button class="button is-info" data-city="New York">New York</button>
-              <button class="button is-info" data-city="Orlando">Orlando</button>
-              <button class="button is-info" data-city="San Francisco">San Francisco</button>
-              <button class="button is-info" data-city="Seattle">Seattle</button>
-              <button class="button is-info" data-city="Denver">Denver</button>
-              <button class="button is-info" data-city="Atlanta">Atlanta</button>
-            </div>
-        </div> -->
-        
+      </div> 
       
-
-        <div class="column" id="weather-container">
-          <h2 class="subtitle">Showing weather for: <span id="city-term"></span></h2>
+      <div class="box column ml-2 mr-4" id="weather-container">
+          
+        <h2 class="subtitle bd-notification is-info title is-5">Showing weather for: <span id="city-term"></span></h2>
           <div class="columns">
             <h3 class="column is one-fifth"></div>
             <h3 class="column is one-fifth"></div>
