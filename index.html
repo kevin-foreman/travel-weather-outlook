@@ -5,46 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Weather Outlook</title>
 </head>
-<body class="flex-column min-100-vh">
-    <header class="hero">
-        <h1 class="dashboard-title">Weather Dashboard</h1>
+<body class="columns is-multiline">
+    <header class="hero-body">
+        <h1 class="dashboard-title hero">Weather Dashboard</h1>
         
       </header>
         
-      <main class="flex-row justify-space-between">
-        <div class="col-12 col-md-4">
+      <main class="columns is-multiline">
+        <div class="column">
           <div class="card">
             <h3 class="card-header">Search for a city:</h3>
             <form id="city-form" class="card-body">
               <label class="form-label" for="city">City</label>
               <input name="city-search-term" id="city-search-term" type="text" autofocus="true" class="form-input" />
-              <button type="submit" class="btn">Search</button>
+              <button type="submit" class="button is-primary">Search</button>
               
             </form>    
           </div>
 
-        <div class="card" >
+        <div class="column" >
               <h3 class="card-header">Search By City</h3>
             <div id="city-buttons" class="card-body">
-              <button class="btn" data-city="Austin">Austin</button>
-              <button class="btn" data-city="Chicago">Chicago</button>
-              <button class="btn" data-city="New York">New York</button>
-              <button class="btn" data-city="Orlando">Orlando</button>
-              <button class="btn" data-city="San Francisco">San Francisco</button>
-              <button class="btn" data-city="Seattle">Seattle</button>
-              <button class="btn" data-city="Denver">Denver</button>
-              <button class="btn" data-city="Atlanta">Atlanta</button>
+              <button class="button is-info" data-city="Austin">Austin</button>
+              <button class="button is-info" data-city="Chicago">Chicago</button>
+              <button class="button is-info" data-city="New York">New York</button>
+              <button class="button is-info" data-city="Orlando">Orlando</button>
+              <button class="button is-info" data-city="San Francisco">San Francisco</button>
+              <button class="button is-info" data-city="Seattle">Seattle</button>
+              <button class="button is-info" data-city="Denver">Denver</button>
+              <button class="button is-info" data-city="Atlanta">Atlanta</button>
             </div>
         </div>
-      </div>
+      
 
-        <div class="col-12 col-md-8">
+        <div class="column" id="weather-container">
           <h2 class="subtitle">Showing weather for: <span id="city-term"></span></h2>
-          <div id="weather-container" class="list-group"></div>
+          <div class="columns">
+            <h3 class="column is one-fifth"></div>
+            <h3 class="column is one-fifth"></div>
+            <h3 class="column is one-fifth"></div>
+            <h3 class="column is one-fifth"></div>
+            <h3 class="column is one-fifth"></div>
+          </div>
         </div>
       </main>
       

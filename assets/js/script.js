@@ -73,20 +73,18 @@ function getCurrentWeather(city) {
     });
   };
 
-  // 
-  function displayForecast() {
-    var forecastDayOne = moment(daily[1].dt*1000).format("MM-DD-YYYY");
-    var forecastDayTwo = moment(daily[2].dt*1000).format("MM-DD-YYYY");
-    var forecastDayThree = moment(daily[3].dt*1000).format("MM-DD-YYYY");
-    var forecastDayFour = moment(daily[4].dt*1000).format("MM-DD-YYYY");
-    var forecastDayFive = moment(daily[5].dt*1000).format("MM-DD-YYYY");
+  // build the function to call a 5 day forecast based on the data from the OneCall
+  // OneCall API returns 7 days, but I only need 5, starting with the day after the current day
+  // function displayForecast() {
+  //   var forecastDayOne = moment(daily[1].dt*1000).format("MM-DD-YYYY");
+  //   var forecastDayTwo = moment(daily[2].dt*1000).format("MM-DD-YYYY");
+  //   var forecastDayThree = moment(daily[3].dt*1000).format("MM-DD-YYYY");
+  //   var forecastDayFour = moment(daily[4].dt*1000).format("MM-DD-YYYY");
+  //   var forecastDayFive = moment(daily[5].dt*1000).format("MM-DD-YYYY");
 
 
 
-  }
-
-
-
+  // }
 
   // Display based on what the API returns
 
@@ -94,8 +92,6 @@ function getCurrentWeather(city) {
   // Display the information returned by the API
   function displayWeather(current, searchTerm) {
 
-    // console.log(main);
-    
     if (current.length === 0) {
     weatherContainerEl.textContent = "No weather found.";
     return;
@@ -111,10 +107,12 @@ function getCurrentWeather(city) {
     var cityName = searchTerm;
     // console.log(main.main.temp);
     // try creating a variable to contain the specific data point from the API response
+
+    // temperature
     var temp = current.temp;
     var tempEl = document.createElement("p");
     tempEl.classList = "list-item flex-row justify-space-between align-center";
-    // display the temperature and convert from kelvin to farenheit
+    // display the temperature and round to the nearest number to omit decimals
     tempEl.textContent = "Temp: " + Math.round(temp) + " F";
   
 
@@ -133,7 +131,8 @@ function getCurrentWeather(city) {
     var uvIndexEl = document.createElement("p");
     uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
     uvIndexEl.textContent = "UV Index: " + current.uvi;
-    
+
+     
     // create a span element to hold the name of the city
     var titleEl = document.createElement("span");
     titleEl.textContent = cityName;
@@ -144,6 +143,39 @@ function getCurrentWeather(city) {
     weatherEl.appendChild(windEl);
     weatherEl.appendChild(humidityEl);
     weatherEl.appendChild(uvIndexEl);
+
+    // create an if else scenario to make the UV index change based on how high or low
+    if (current.uvi <= 2) {
+      var uvIndexEl = document.createElement("p");
+      uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
+      uvIndexEl.textContent = "UV Index: " + current.uvi + " (Favorable)";
+      console.log(uvIndexEl.textContent);
+      weatherEl.appendChild(uvIndexEl);
+    } else if (current.uvi >= 3 || current.uvi <= 5)  {
+      var uvIndexEl = document.createElement("p");
+      uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
+      uvIndexEl.textContent = "UV Index: " + current.uvi + " (Moderate)";
+      console.log(uvIndexEl.textContent);
+      weatherEl.appendChild(uvIndexEl);
+    } else if (current.uvi >= 6 || current.uvi <= 7)  {
+      var uvIndexEl = document.createElement("p");
+      uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
+      uvIndexEl.textContent = "UV Index: " + current.uvi + " (High)";
+      console.log(uvIndexEl.textContent);
+      weatherEl.appendChild(uvIndexEl);
+    } else if (current.uvi >= 8 || current.uvi <= 10)  {
+      var uvIndexEl = document.createElement("p");
+      uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
+      uvIndexEl.textContent = "UV Index: " + current.uvi + " (Very High)";
+      console.log(uvIndexEl.textContent);
+      weatherEl.appendChild(uvIndexEl);
+    } else if (current.uvi >= 11)  {
+      var uvIndexEl = document.createElement("p");
+      uvIndexEl.classList = "list-item flex-row justify-space-between align-center";
+      uvIndexEl.textContent = "UV Index: " + current.uvi + " (Extreme)";
+      console.log(uvIndexEl.textContent);
+      weatherEl.appendChild(uvIndexEl);
+    }
 
     // Append container to the DOM
     weatherContainerEl.appendChild(weatherEl);
@@ -165,8 +197,8 @@ function getCurrentWeather(city) {
 
   // button click handler
 function buttonClickHandler() {
-  let city = event.target.getAttribute("data-city");
-  console.log(city);
+  var city = event.target.getAttribute("data-city");
+  // console.log(city);
   if (city) {
     // console.log(city);
     getCurrentWeather(city);
