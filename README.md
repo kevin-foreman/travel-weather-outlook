@@ -10,7 +10,7 @@ User Story: AS A traveler I WANT to see the weather outlook for multiple cities 
 ### Screenshot
 
 ## General info
-This is a simple web-based application to keep track of tasks during a standard business day. The current day is displayed at the top of the calendar. When the user scrolls down they are presented with time blocks for standard business hours. Each time block is color-coded to indicate whether it is in the past, present, or future. When a user clicks into a time block they can enter an event. When the user clicks the save button for that time block the text for that event is saved in local storage. When the user refreshes the page the saved event persists.
+This is a simple web-based application to find weather of a searched city to determine the weather of the city a user might wish to visit. User is presented with a simple search function and can enter the destination city. Upon searching for the city, the user is presented with current day weather as well as weather for the next 5 days in a forecast. User is presented with temperature, wind, humidity, and the UV index values to plan accordingly. After searching for a city, that city is saved as a recent search so the user can easily search for that city again, should they need to.
 
 ## Technologies
 Project is built with:
@@ -26,3 +26,4 @@ To launch the page click on the link provided below
 Link to deployed location: https://kevin-foreman.github.io/travel-weather-outlook/
 
 Screenshot: 
+![screenshot](./travel-weather-outlook-screenshot.png)
