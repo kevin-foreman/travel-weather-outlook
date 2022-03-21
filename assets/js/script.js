@@ -1,9 +1,8 @@
 var weatherContainerEl = document.querySelector("#weather-container");
 var cityFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#city-search-term");
-// var cityButtonsEl = document.querySelector("#city-buttons");
 var citySearchTermEl = document.querySelector("#city-term");
-var weeklyForecastEl = document.querySelector("#week-forecast")
+var weeklyForecastEl = document.querySelector("#week-forecast");
 
 
 // take input from a user to search for a city inside the form
@@ -39,7 +38,7 @@ function getCurrentWeather(city) {
           // displayWeather(data.name, city);
           // console.log(data);
           // console.log(data.name);
-          getOneCall(data.coord);
+          getOneCall(data.coord, data.name);
           // displayWeather(data.name);
         });
       } else {
@@ -59,7 +58,7 @@ function getCurrentWeather(city) {
       // console.log(response);
       if (response.ok) {
         response.json().then(function(data) {
-          console.log(data);
+        // console.log(city);
         displayWeather(data.current, city);
         // displayForecast(data.daily)
         });
@@ -134,11 +133,10 @@ function getCurrentWeather(city) {
 
      
     // create a span element to hold the name of the city
-    var titleEl = document.createElement("span");
-    titleEl.textContent = cityName;
+    // var titleEl = document.createElement("span");
+    // titleEl.textContent = cityName;
 
     // Append items to the container
-    weatherEl.appendChild(titleEl);
     weatherEl.appendChild(tempEl);
     weatherEl.appendChild(windEl);
     weatherEl.appendChild(humidityEl);
